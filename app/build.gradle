@@ -41,6 +41,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
     // Provides ArFragment, and other UX resources.
+    // In this sample we will use it for convenience.
     implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.7.0'
 
     // Alternatively, use ArSceneView without the UX dependency.
