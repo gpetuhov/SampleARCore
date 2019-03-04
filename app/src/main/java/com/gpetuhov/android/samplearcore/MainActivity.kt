@@ -15,6 +15,9 @@ import com.google.ar.sceneform.ux.ArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 import com.pawegio.kandroid.toast
 
+// 3D model used: Aiming Sentinel by Jeremy Eyring:
+// https://poly.google.com/view/61og3j-bM-G
+
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -56,13 +59,14 @@ class MainActivity : AppCompatActivity() {
                 null
             }
 
-        // This is needed to place our model on the detected plane
+        // This is needed to place our model on the detected plane,
+        // at the place of the user's tap.
         arFragment?.setOnTapArPlaneListener { hitResult: HitResult, plane: Plane, motionEvent: MotionEvent ->
             if (modelRenderable == null) {
                 return@setOnTapArPlaneListener
             }
 
-            // Create the Anchor.
+            // Create the Anchor at the place of the tap.
             val anchor = hitResult.createAnchor()
             val anchorNode = AnchorNode(anchor)
             anchorNode.setParent(arFragment?.arSceneView?.scene)
@@ -73,9 +77,6 @@ class MainActivity : AppCompatActivity() {
             model.renderable = modelRenderable
             model.select()
         }
-
-        // 3D model: aiming sentinel by Jeremy Eyring:
-        // https://poly.google.com/view/61og3j-bM-G
     }
 
     override fun onResume() {

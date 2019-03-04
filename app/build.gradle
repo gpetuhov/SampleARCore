@@ -68,6 +68,7 @@ dependencies {
 // 6. Set .sfb Output Path to src/main/res/raw
 // 7. This will create 2 files: sfa and sfb
 // 8. Now we can reference our model as R.raw.model_name
+// 9. To change initial size of the model in the scene, open sfa file and change scale value
 sceneform.asset('sampledata/models/sentinel_aiming.obj',
         'default',
         'sampledata/models/sentinel_aiming.sfa',
