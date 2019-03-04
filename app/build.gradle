@@ -46,4 +46,7 @@ dependencies {
 
     // Alternatively, use ArSceneView without the UX dependency.
 //    implementation 'com.google.ar.sceneform:core:1.7.0'
+
+    // KAndroid
+    implementation 'com.pawegio.kandroid:kandroid:0.8.8@aar'
 }
