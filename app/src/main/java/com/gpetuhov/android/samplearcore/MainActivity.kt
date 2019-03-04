@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
      *
      * Finishes the activity if Sceneform can not run
      */
-    fun checkIsSupportedDeviceOrFinish(activity: Activity): Boolean {
+    private fun checkIsSupportedDeviceOrFinish(activity: Activity): Boolean {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             toast("Sceneform requires Android N or later")
             activity.finish()
