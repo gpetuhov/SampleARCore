@@ -52,6 +52,22 @@ dependencies {
     implementation 'com.pawegio.kandroid:kandroid:0.8.8@aar'
 }
 
+// This is added automatically by Sceneform plugin.
+// To do it:
+// 1. Install Sceneform plugin:
+// 1.1. Android Studio -> Preferences -> Plugins
+// 1.2. Browse repositories… -> Search Google Sceneform Tools
+// 1.3. Install
+// 2. Create directory sampledata/models
+// 3. Copy 3D model files into it (obj, mtl and images)
+// 3.1. Files must have no spaces in their names
+// 3.2. In case of spaces, rename mtl and obj files,
+// then open obj file and change mtl file name reference inside it (at the start of the file)
+// 4. Right-click on the obj file -> Import Sceneform Asset
+// 5. Set .sfa Output Path to sampledata/models
+// 6. Set .sfb Output Path to src/main/res/raw
+// 7. This will create 2 files: sfa and sfb
+// 8. Now we can reference our model as R.raw.model_name
 sceneform.asset('sampledata/models/sentinel_aiming.obj',
         'default',
         'sampledata/models/sentinel_aiming.sfa',

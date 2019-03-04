@@ -1,7 +1,7 @@
 # SampleARCore
 The very basics of using ARCore in Android.
 
-Get 3D model from Poly.google.com, add it into the app and place on the detected surface.
+Get 3D model from Poly.google.com, add it into the app and place on the detected plane.
 
 ## 3D Model used
 

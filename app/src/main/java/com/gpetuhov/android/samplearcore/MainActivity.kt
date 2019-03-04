@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
         ModelRenderable.builder()
+            // R.raw.model_name is created by Sceneform plugin (see build.gradle for details)
             .setSource(this, R.raw.sentinel_aiming)
             .build()
             .thenAccept { renderable -> modelRenderable = renderable }
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                 null
             }
 
+        // This is needed to place our model on the detected plane
         arFragment?.setOnTapArPlaneListener { hitResult: HitResult, plane: Plane, motionEvent: MotionEvent ->
             if (modelRenderable == null) {
                 return@setOnTapArPlaneListener
