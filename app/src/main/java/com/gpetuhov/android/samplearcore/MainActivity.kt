@@ -31,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(R.layout.activity_main)
+
+        // 3D model: aiming sentinel by Jeremy Eyring:
+        // https://poly.google.com/view/61og3j-bM-G
     }
 
     override fun onResume() {

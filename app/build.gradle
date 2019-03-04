@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.ar.sceneform.plugin'
 
 android {
     compileSdkVersion 28
@@ -50,3 +51,8 @@ dependencies {
     // KAndroid
     implementation 'com.pawegio.kandroid:kandroid:0.8.8@aar'
 }
+
+sceneform.asset('sampledata/models/sentinel aiming.obj',
+        'default',
+        'sampledata/models/sentinel aiming.sfa',
+        'src/main/assets/sentinel aiming')

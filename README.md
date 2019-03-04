@@ -3,6 +3,12 @@ The very basics of using ARCore in Android.
 
 Get 3D model from Poly.google.com, add it into the app and place on the detected surface.
 
+## 3D Model used
+
+Aiming Sentinel by Jeremy Eyring:
+
+https://poly.google.com/view/61og3j-bM-G
+
 ## Requirements
 * Android Studio 3.5 Canary 6
 * Kotlin 1.3.30-eap-11
