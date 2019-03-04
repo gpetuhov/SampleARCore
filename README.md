@@ -1,7 +1,7 @@
 # SampleARCore
 The very basics of using ARCore in Android.
 
-Get 3D model from Poly.google.com, add it into the app and place it on the detected surface.
+Get 3D model from Poly.google.com, add it into the app and place on the detected surface.
 
 ## Requirements
 * Android Studio 3.5 Canary 6
@@ -16,6 +16,9 @@ https://developers.google.com/ar/discover/
 https://poly.google.com/
 
 https://proandroiddev.com/building-arcore-apps-using-sceneform-part-1-b9e57d1057e6
+
 https://proandroiddev.com/building-arcore-apps-using-sceneform-part-2-f18982bef2df
+
 https://proandroiddev.com/building-arcore-apps-using-sceneform-part-3-4cd392d6284f
+
 https://proandroiddev.com/building-arcore-apps-using-sceneform-part-4-9bb8374eaab4
