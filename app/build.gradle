@@ -52,7 +52,7 @@ dependencies {
     implementation 'com.pawegio.kandroid:kandroid:0.8.8@aar'
 }
 
-sceneform.asset('sampledata/models/sentinel aiming.obj',
+sceneform.asset('sampledata/models/sentinel_aiming.obj',
         'default',
-        'sampledata/models/sentinel aiming.sfa',
-        'src/main/assets/sentinel aiming')
+        'sampledata/models/sentinel_aiming.sfa',
+        'src/main/res/raw/sentinel_aiming')

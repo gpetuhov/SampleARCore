@@ -6,6 +6,13 @@ import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
+import com.google.ar.core.HitResult
+import com.google.ar.core.Plane
+import com.google.ar.sceneform.AnchorNode
+import com.google.ar.sceneform.rendering.ModelRenderable
+import com.google.ar.sceneform.ux.ArFragment
+import com.google.ar.sceneform.ux.TransformableNode
 import com.pawegio.kandroid.toast
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +20,9 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val MIN_OPENGL_VERSION = 3.0
     }
+
+    private var arFragment: ArFragment? = null
+    private var modelRenderable: ModelRenderable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +41,36 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(R.layout.activity_main)
+
+        arFragment = supportFragmentManager.findFragmentById(R.id.arFragment) as ArFragment
+
+        // When you build a Renderable, Sceneform loads its resources in the background while returning
+        // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
+        ModelRenderable.builder()
+            .setSource(this, R.raw.sentinel_aiming)
+            .build()
+            .thenAccept { renderable -> modelRenderable = renderable }
+            .exceptionally { throwable ->
+                toast("Unable to load renderable")
+                null
+            }
+
+        arFragment?.setOnTapArPlaneListener { hitResult: HitResult, plane: Plane, motionEvent: MotionEvent ->
+            if (modelRenderable == null) {
+                return@setOnTapArPlaneListener
+            }
+
+            // Create the Anchor.
+            val anchor = hitResult.createAnchor()
+            val anchorNode = AnchorNode(anchor)
+            anchorNode.setParent(arFragment?.arSceneView?.scene)
+
+            // Create the transformable model and add it to the anchor.
+            val model = TransformableNode(arFragment?.transformationSystem)
+            model.setParent(anchorNode)
+            model.renderable = modelRenderable
+            model.select()
+        }
 
         // 3D model: aiming sentinel by Jeremy Eyring:
         // https://poly.google.com/view/61og3j-bM-G
